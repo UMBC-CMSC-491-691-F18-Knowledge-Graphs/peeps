@@ -1,51 +1,85 @@
-@prefix : <http://www.semanticweb.org/ontologies/2014/3/mypeeps#> .
+@prefix : <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/ontologies/2014/3/mypeeps> .
+@prefix mypeeps: <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
+@base <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl> .
 
-<http://www.semanticweb.org/ontologies/2014/3/mypeeps> 
-  rdf:type owl:Ontology ;
-#  owl:imports <http://ebiq.org/ontologies/peeps/> 
-.
+<https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ebiq.org/ontologies/peeps/#hasAge
+<http://ebiq.org/ontologies/peeps/#hasAge> rdf:type owl:AnnotationProperty .
+
+
+###  http://ebiq.org/ontologies/peeps/#hasParent
+<http://ebiq.org/ontologies/peeps/#hasParent> rdf:type owl:AnnotationProperty .
+
+
+###  http://ebiq.org/ontologies/peeps/#hasSex
+<http://ebiq.org/ontologies/peeps/#hasSex> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/givenName
+<http://xmlns.com/foaf/0.1/givenName> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ebiq.org/ontologies/peeps/#Man
+<http://ebiq.org/ontologies/peeps/#Man> rdf:type owl:Class .
+
+
+###  http://ebiq.org/ontologies/peeps/#Person
+<http://ebiq.org/ontologies/peeps/#Person> rdf:type owl:Class .
+
+
+###  http://ebiq.org/ontologies/peeps/#Woman
+<http://ebiq.org/ontologies/peeps/#Woman> rdf:type owl:Class .
+
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/ontologies/2014/3/mypeeps#alan
+###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl#alan
 :alan rdf:type owl:NamedIndividual ,
                <http://ebiq.org/ontologies/peeps/#Person> ;
       <http://ebiq.org/ontologies/peeps/#hasAge> 60 ;
       <http://ebiq.org/ontologies/peeps/#hasSex> "male"^^xsd:string ;
-      <http://xmlns.com/foaf/0.1/givenName> "Alan" ;
       rdfs:comment "We asserted that alan was a Person with age 60.  This allowed the inferences that he was a Man and also that he is older than bob (whose age is 26) and older than bob's child diana since bob is older than diana (parents are older than their children) and olderThan is a transitive relation." ;
-      rdfs:label "Alan" .
+      rdfs:label "Alan" ;
+      <http://xmlns.com/foaf/0.1/givenName> "Alan" .
 
 
-###  http://www.semanticweb.org/ontologies/2014/3/mypeeps#bob
+###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl#bob
 :bob rdf:type owl:NamedIndividual ,
               <http://ebiq.org/ontologies/peeps/#Man> ;
-     <http://ebiq.org/ontologies/peeps/#hasParent> :carol ;
      <http://ebiq.org/ontologies/peeps/#hasAge> 26 ;
-     <http://xmlns.com/foaf/0.1/givenName> "Robert" ;
+     <http://ebiq.org/ontologies/peeps/#hasParent> :carol ;
      rdfs:comment "We asserted that bob is a Man whose age is 26.  This allowed the inference that he is also a Man and younder than alan, whose age is 60." ;
-     rdfs:label "Bob" .
+     rdfs:label "Bob" ;
+     <http://xmlns.com/foaf/0.1/givenName> "Robert" .
 
 
-###  http://www.semanticweb.org/ontologies/2014/3/mypeeps#carol
+###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl#carol
 :carol rdf:type owl:NamedIndividual ,
                 <http://ebiq.org/ontologies/peeps/#Person> ,
                 <http://ebiq.org/ontologies/peeps/#Woman> ;
        <http://ebiq.org/ontologies/peeps/#hasSex> "female"^^xsd:string ;
-       <http://xmlns.com/foaf/0.1/givenName> "Carol" ;
        rdfs:comment "We asserted that carol is a Person with sex \"female\" implying that she is also a Woman.  We asserted that bob's parent is carol, so we infer that carol's child is bob and that carol is older than bob and bob is younder than carol." ;
-       rdfs:label "Carol" .
+       rdfs:label "Carol" ;
+       <http://xmlns.com/foaf/0.1/givenName> "Carol" .
 
 
-###  http://www.semanticweb.org/ontologies/2014/3/mypeeps#diana
+###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl#diana
 :diana rdf:type owl:NamedIndividual ,
                 <http://ebiq.org/ontologies/peeps/#Person> ;
        <http://ebiq.org/ontologies/peeps/#hasParent> :bob ;
@@ -53,4 +87,4 @@
        rdfs:label "Diana" .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
