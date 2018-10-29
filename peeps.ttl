@@ -12,7 +12,7 @@
 @base <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
 
 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> rdf:type owl:Ontology ;
-                                                                                                   rdfs:label "An example ontology for people created in Protege OWL v4.3\"" .
+                                                                                                   rdfs:label "An example ontology for people created in Protege OWL 5.5\"" .
 
 #################################################################
 #    Annotation properties
