@@ -12,7 +12,12 @@
 @base <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
 
 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> rdf:type owl:Ontology ;
-                                                                                                   rdfs:label "An example ontology for people created in Protege OWL 5.5\"" .
+                                                                                                   owl:imports foaf: ;
+                                                                                                   rdfs:label """An example ontology for people created in Protege OWL 5.5.  Note that
+
+* while we do reference foaf:Person and schema:Person, we do not import their ontologies
+
+* The ontology IRI is a url pointing to the raw file in a github repo""" .
 
 #################################################################
 #    Annotation properties
