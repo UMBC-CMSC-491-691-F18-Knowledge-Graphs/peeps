@@ -27,12 +27,18 @@ def ask(query, endpoint=default_endpoint):
     sparql.setQuery(query)
     results = sparql.query().convert()
     for result in results["results"]["bindings"]:
-        tuples.append(tuple([v['value'] for v in result.values()]))
+        tuples.append(tuple([str(v['value']) for v in result.values()]))
     return tuples
 
-for x in ask(person_query):
-    print(x)
+def main():
+    print('Query to find people and the classes to which they belong')
+    for obj,name in ask(person_query):
+        print(obj, name)
+    print('\n\nQuery to find classes and the number of their instances')
+    for n, cls in ask(class_query):
+        print(int(n), cls)
 
-for x in ask(class_query):
-    print(x)    
-
+if __name__ == "__main__":
+    # if called from command-line, call main() as an example
+    main()
+    
