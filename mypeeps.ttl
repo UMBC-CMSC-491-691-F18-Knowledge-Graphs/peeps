@@ -10,7 +10,8 @@
 @base <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl> .
 
 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl> rdf:type owl:Ontology ;
-                                                                                                     owl:imports <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
+                                                                                                     owl:imports foaf: ,
+                                                                                                                 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
 
 #################################################################
 #    Annotation properties

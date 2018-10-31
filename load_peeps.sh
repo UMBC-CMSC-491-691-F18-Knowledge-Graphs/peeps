@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# loads peeps.ttl and mypeeps.ttl into a Stardog database.  Assumes
-# that Stardog is installed and set up properly
+# loads peeps.ttl, mypeeps.ttl and associated namespaces into a
+# Stardog database.  Assumes that Stardog is installed and set up
+# properly
 
 PORT="5820"
 SERVER="http://localhost:$PORT"
