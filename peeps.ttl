@@ -12,12 +12,9 @@
 @base <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
 
 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> rdf:type owl:Ontology ;
-                                                                                                   owl:imports foaf: ;
                                                                                                    rdfs:label """An example ontology for people created in Protege OWL 5.5.  Note that
-
-* while we do reference foaf:Person and schema:Person, we do not import their ontologies
-
-* The ontology IRI is a url pointing to the raw file in a github repo""" .
+* while we do reference foaf:Person and schema:Person, we do not import their ontologies;
+* The ontology IRI is a url pointing to the raw file in a github repo.""" .
 
 #################################################################
 #    Annotation properties
@@ -35,11 +32,15 @@
 :hasChild rdf:type owl:ObjectProperty ;
           owl:inverseOf :hasParent ;
           rdf:type owl:AsymmetricProperty ,
-                   owl:IrreflexiveProperty .
+                   owl:IrreflexiveProperty ;
+          rdfs:domain :Person ;
+          rdfs:range :Person .
 
 
 ###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl#hasGrandparent
-:hasGrandparent rdf:type owl:ObjectProperty ;
+:hasGrandparent rdf:type owl:ObjectProperty ,
+                         owl:AsymmetricProperty ,
+                         owl:IrreflexiveProperty ;
                 owl:propertyChainAxiom ( :hasParent
                                          :hasParent
                                        ) ;
@@ -70,12 +71,18 @@
 ###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl#olderThan
 :olderThan rdf:type owl:ObjectProperty ;
            owl:inverseOf :youngerThan ;
-           rdf:type owl:TransitiveProperty .
+           rdf:type owl:AsymmetricProperty ,
+                    owl:TransitiveProperty ,
+                    owl:IrreflexiveProperty ;
+           rdfs:domain :Person ;
+           rdfs:range :Person .
 
 
 ###  https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl#youngerThan
 :youngerThan rdf:type owl:ObjectProperty ,
-                      owl:TransitiveProperty ;
+                      owl:AsymmetricProperty ,
+                      owl:TransitiveProperty ,
+                      owl:IrreflexiveProperty ;
              rdfs:domain :Person ;
              rdfs:range :Person ;
              rdfs:comment "The is_yonger relation holds between two people if the the agent of the first is less than the age of the second." .

@@ -11,7 +11,8 @@
 
 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/mypeeps.ttl> rdf:type owl:Ontology ;
                                                                                                      owl:imports foaf: ,
-                                                                                                                 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> .
+                                                                                                                 <https://raw.githubusercontent.com/UMBC-CMSC-491-691-F18-Knowledge-Graphs/peeps/master/peeps.ttl> ;
+                                                                                                     rdfs:comment "some instances to go with the peeps ontology" .
 
 #################################################################
 #    Annotation properties
