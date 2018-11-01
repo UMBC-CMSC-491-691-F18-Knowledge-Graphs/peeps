@@ -36,7 +36,7 @@ def main():
         print(obj, name)
     print('\n\nQuery to find classes and the number of their instances')
     for n, cls in ask(class_query):
-        print(int(n), cls)
+        print(n, cls)
 
 if __name__ == "__main__":
     # if called from command-line, call main() as an example
